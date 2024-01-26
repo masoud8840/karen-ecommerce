@@ -1,5 +1,79 @@
+$text: #39354c;
+$lightWhite: #faf8f8;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header {
+  position: fixed;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  .navbar {
+    transition: padding 0.2s;
+    padding-block: 15px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    &.extended {
+      padding-top: 30px;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .horizontal-line {
+      height: 85%;
+      border: 1px solid $text;
+    }
+  }
+
+
+  ul.dropdown {
+    background-color: $lightWhite;
+    padding: 25px;
+    position: absolute;
+    bottom: -100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba($color: $text, $alpha: 0.1);
+
+    &.dropdown-enter-from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    &.dropdown-enter-active {
+      transition: all 0.25s ease-out;
+    }
+    &.dropdown-leave-active {
+      transition: all 0.25s ease-in;
+    }
+    &.dropdown-leave-to {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+  }
+}
+
+.home-view {
+  min-height: 200vh;
+  padding-top: 150px;
+}
+// Global Styles
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
 }
