@@ -37,6 +37,12 @@ header {
     }
   }
 
+
+  .dropdown-toggler {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
   ul.dropdown {
     background-color: $lightWhite;
     padding: 25px;
