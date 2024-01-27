@@ -6,7 +6,7 @@ $lightWhite: #faf8f8;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font: 500 16px "Borna";
+  font: 500 14px "Borna";
 }
 .container {
   width: 100%;
@@ -26,7 +26,7 @@ header {
     &.extended {
       padding-top: 30px;
     }
-    ul {
+    ul.navbar-inner {
       display: flex;
       align-items: center;
       gap: 15px;
@@ -37,17 +37,19 @@ header {
     }
   }
 
-
   .dropdown-toggler {
     display: flex;
     align-items: center;
     gap: 5px;
   }
   ul.dropdown {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 30px;
     background-color: $lightWhite;
     padding: 25px;
     position: absolute;
-    bottom: -100%;
+    bottom: -490px;
     border-radius: 16px;
     box-shadow: 0 10px 20px rgba($color: $text, $alpha: 0.1);
 
@@ -64,6 +66,19 @@ header {
     &.dropdown-leave-to {
       transform: translateY(30px);
       opacity: 0;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 15px;
+      a {
+        color: rgba($color: $text, $alpha: 0.5);
+        font-size: 14px;
+        &:hover {
+          color: $text;
+        }
+      }
     }
   }
 }
@@ -83,4 +98,19 @@ button {
   background-color: transparent;
   border: 0;
   cursor: pointer;
+}
+
+.section-title {
+  position: relative;
+  font-size: 16px;
+  display: inline;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 1px;
+    background-color: $text;
+    right: 0;
+    bottom: 0;
+  }
 }
