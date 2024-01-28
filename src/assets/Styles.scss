@@ -19,12 +19,15 @@ header {
   position: fixed;
   width: 100%;
   backdrop-filter: blur(5px);
+  z-index: 1000;
+  background-color: rgba($color: #fff, $alpha: 0.5);
   .navbar {
     transition: padding 0.2s;
     padding-block: 15px;
     display: flex;
     justify-content: space-between;
     position: relative;
+    z-index: 1001;
     &.extended {
       padding-top: 30px;
     }
@@ -51,7 +54,7 @@ header {
     background-color: $lightWhite;
     padding: 25px;
     position: absolute;
-    bottom: -490px;
+    bottom: -483px;
     border-radius: 16px;
     box-shadow: 0 10px 20px rgba($color: $text, $alpha: 0.1);
 
