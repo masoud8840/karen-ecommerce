@@ -47,5 +47,16 @@ import Categories from "../data/Categories.json";
         </swiper-slide>
       </swiper>
     </section>
+
+
+
+    <section class="free_delivery">
+      <section class="free_delivery-inner container">
+        <h3><span>ارسال رایگان </span>با اولین خرید</h3>
+        <section class="line-through">
+          <p>در اولین سفارش سبد خرید خود را رایگان تحویل بگیرید</p>
+        </section>
+      </section>
+    </section>
   </main>
 </template>
