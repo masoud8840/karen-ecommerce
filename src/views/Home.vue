@@ -48,8 +48,6 @@ import Categories from "../data/Categories.json";
       </swiper>
     </section>
 
-
-
     <section class="free_delivery">
       <section class="free_delivery-inner container">
         <h3><span>ارسال رایگان </span>با اولین خرید</h3>
@@ -57,6 +55,12 @@ import Categories from "../data/Categories.json";
           <p>در اولین سفارش سبد خرید خود را رایگان تحویل بگیرید</p>
         </section>
       </section>
+    </section>
+
+    <section class="banner-2x2 container">
+      <router-link :to="{ name: 'Home' }" v-for="i in 4" :key="i">
+        <img :src="`/images/BannerEx${i}.webp`" alt="banner" />
+      </router-link>
     </section>
   </main>
 </template>
