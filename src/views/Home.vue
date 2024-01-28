@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import CreativeCard from "../components/Products/CreativeCard.vue";
 import Tools from "../components/icons/Tools.vue";
+import Categories from "../data/Categories.json";
 </script>
 
 <template>
@@ -41,8 +42,8 @@ import Tools from "../components/icons/Tools.vue";
           <Tools :width="96" />
           <button class="btn btn-primary">مشاهده همه</button>
         </swiper-slide>
-        <swiper-slide v-for="i in 8" :key="i">
-          <CreativeCard title="محافظت و ایمنی" />
+        <swiper-slide v-for="(category, index) in Categories" :key="index">
+          <CreativeCard :title="category.title" />
         </swiper-slide>
       </swiper>
     </section>
