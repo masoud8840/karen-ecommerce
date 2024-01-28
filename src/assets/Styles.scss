@@ -1,5 +1,7 @@
 $text: #39354c;
 $lightWhite: #faf8f8;
+$orange: #fdac16;
+
 // FontFamilies
 @import url("./font.scss");
 * {
@@ -92,6 +94,7 @@ header {
     grid-template-rows: repeat(2, 1fr);
     min-height: 80vh;
     gap: 30px;
+    margin-bottom: 100px;
     article {
       border-radius: 32px;
       overflow: hidden;
@@ -132,6 +135,95 @@ header {
       grid-row: 2/3;
     }
   }
+
+  .categories-slider {
+    h3 {
+      font-size: 22px;
+      line-height: 33px;
+      color: $text;
+    }
+    .swiper {
+      background-color: $lightWhite;
+      padding: 25px;
+      border-radius: 32px;
+      .swiper-pagination-bullet {
+        margin-inline: 2px;
+        background-color: rgba($color: $text, $alpha: 0.5);
+      }
+
+      .swiper-pagination-bullet-active {
+        background-color: $orange;
+        scale: 1.2;
+      }
+
+      .swiper-wrapper {
+        margin-bottom: 30px;
+        .swiper-slide {
+          &:first-child {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            min-height: 310px;
+          }
+
+          .card {
+            background: linear-gradient(
+              to top,
+              rgba($color: $text, $alpha: 0.25),
+              transparent
+            );
+            min-height: 310px;
+            position: relative;
+            border-radius: 16px;
+            display: flex;
+            align-items: end;
+            padding: 50px 15px;
+            .card-title {
+              font-size: 16px;
+              line-height: 24px;
+              color: #fff;
+            }
+
+            a {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              background-color: $lightWhite;
+              border-radius: 16px 0 0 0;
+              padding: 7px 25px;
+              color: $text;
+
+              &:hover {
+                color: $orange;
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                top: -36px;
+                right: 0px;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                box-shadow: 16px 16px 0 0 $lightWhite;
+              }
+              &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: -36px;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                box-shadow: 16px 16px 0 0 $lightWhite;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 // Global Styles
 ul {
@@ -144,6 +236,12 @@ button {
   background-color: transparent;
   border: 0;
   cursor: pointer;
+  &.btn-primary {
+    background-color: $orange;
+    color: #fff;
+    padding: 7px 15px;
+    border-radius: 8px;
+  }
 }
 
 .section-title {
