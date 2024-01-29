@@ -261,6 +261,41 @@ header {
       border-radius: 32px;
     }
   }
+
+  .featured_products-container {
+    margin-block: 100px;
+
+    .featured_products-header {
+      display: flex;
+      justify-content: space-between;
+      ul {
+        display: flex;
+        gap: 15px;
+        &.featured_products-options {
+          align-items: center;
+          hr {
+            height: 75%;
+          }
+
+          button {
+            color: rgba($color: $text, $alpha: 0.5);
+            font-size: 16px;
+            line-height: 24px;
+            &.active {
+              color: $text;
+            }
+          }
+        }
+        &.featured_products-arrows {
+          button {
+            background-color: $lightWhite;
+            border-radius: 8px;
+            padding: 2px;
+          }
+        }
+      }
+    }
+  }
 }
 // Global Styles
 ul {
@@ -273,6 +308,7 @@ button {
   background-color: transparent;
   border: 0;
   cursor: pointer;
+  display: flex;
   &.btn-primary {
     background-color: $orange;
     color: #fff;
@@ -318,4 +354,8 @@ button {
     font-size: 16px;
     line-height: 24px;
   }
+}
+
+hr.line-orange {
+  border: 1px solid $orange;
 }
