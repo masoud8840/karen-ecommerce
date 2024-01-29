@@ -79,10 +79,7 @@
         </ul>
       </section>
       <section class="featured_products-slider">
-        <Swiper
-          :slides-per-view="3"
-          :space-between="30"
-        >
+        <Swiper :slides-per-view="3" :space-between="30">
           <SwiperSlide><VerticalCard /></SwiperSlide>
           <SwiperSlide><VerticalCard /></SwiperSlide>
           <SwiperSlide><VerticalCard /></SwiperSlide>
@@ -90,6 +87,14 @@
         </Swiper>
       </section>
     </section>
+
+    <router-link :to="{ name: 'Home' }" class="fluid-banner container">
+      <img
+        src="/public/images/FluidBannerPlaceholder.png"
+        alt="banner"
+        class=""
+      />
+    </router-link>
   </main>
 </template>
 

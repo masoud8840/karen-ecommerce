@@ -297,6 +297,13 @@ header {
       }
     }
   }
+
+  .fluid-banner {
+    display: block;
+    img {
+      border-radius: 32px;
+    }
+  }
 }
 // Global Styles
 ul {
