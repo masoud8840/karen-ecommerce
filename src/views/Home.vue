@@ -24,7 +24,6 @@
         :slides-per-view="4"
         :space-between="30"
         :pagination="{ clickable: true }"
-        :scrollbar="{ draggable: true }"
         :modules="[Autoplay, Pagination]"
       >
         <swiper-slide>
@@ -80,7 +79,15 @@
         </ul>
       </section>
       <section class="featured_products-slider">
-        <!-- list of ProductCard -->
+        <Swiper
+          :slides-per-view="3"
+          :space-between="30"
+        >
+          <SwiperSlide><VerticalCard /></SwiperSlide>
+          <SwiperSlide><VerticalCard /></SwiperSlide>
+          <SwiperSlide><VerticalCard /></SwiperSlide>
+          <SwiperSlide><VerticalCard /></SwiperSlide>
+        </Swiper>
       </section>
     </section>
   </main>
@@ -96,7 +103,7 @@ import CreativeCard from "../components/Products/CreativeCard.vue";
 import Tools from "../components/icons/Tools.vue";
 import Categories from "../data/Categories.json";
 import Arrow from "../components/icons/Arrow.vue";
-
+import VerticalCard from "../components/Products/VerticalCard.vue";
 const featuredProductsTabs = ref(["منتخب کاربران", "جدید ترین ها", "جراجی ها"]);
 const featuredProductsActiveTab = ref("منتخب کاربران");
 function handleChangeFeaturedProductsActiveTab(tab) {

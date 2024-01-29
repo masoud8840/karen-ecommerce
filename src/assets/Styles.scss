@@ -264,15 +264,15 @@ header {
 
   .featured_products-container {
     margin-block: 100px;
-
     .featured_products-header {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 15px;
       ul {
         display: flex;
-        gap: 15px;
         &.featured_products-options {
           align-items: center;
+          gap: 15px;
           hr {
             height: 75%;
           }
@@ -287,6 +287,7 @@ header {
           }
         }
         &.featured_products-arrows {
+          gap: 7px;
           button {
             background-color: $lightWhite;
             border-radius: 8px;
@@ -358,4 +359,71 @@ button {
 
 hr.line-orange {
   border: 1px solid $orange;
+}
+
+.vertical_card-base {
+  width: 100%;
+  max-width: 380px;
+  background-color: $lightWhite;
+  padding: 15px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  .vertical_card-image_container {
+    position: relative;
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .off_percentage {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      font-weight: 600;
+      direction: ltr;
+      color: #fff;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  .vertical_card-header {
+    .vertical_card-heading {
+      h5 {
+        font-size: 16px;
+        line-height: 24px;
+        color: $text;
+        margin-bottom: 5px;
+      }
+      span {
+        font-weight: 400;
+        color: rgba($color: $text, $alpha: 0.5);
+      }
+    }
+  }
+  .vertical_card-footer,
+  .vertical_card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+  .vertical_card-footer {
+    .vertical_card-price {
+      .vertical_card-new_price {
+        font-size: 16px;
+        line-height: 24px;
+        color: $text;
+      }
+      .vertical_card-old_price {
+        color: rgba($color: $text, $alpha: 0.5);
+        text-decoration: line-through;
+      }
+    }
+    .vertical_card-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+  }
 }
