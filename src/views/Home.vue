@@ -1,13 +1,3 @@
-<script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Autoplay, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import CreativeCard from "../components/Products/CreativeCard.vue";
-import Tools from "../components/icons/Tools.vue";
-import Categories from "../data/Categories.json";
-</script>
-
 <template>
   <main class="home-view">
     <section class="categories-showcase container">
@@ -62,5 +52,54 @@ import Categories from "../data/Categories.json";
         <img :src="`/images/BannerEx${i}.webp`" alt="banner" />
       </router-link>
     </section>
+
+    <section class="featured_products-container container">
+      <section class="featured_products-header">
+        <ul class="featured_products-options">
+          <template v-for="(tab, index) in featuredProductsTabs" :key="index">
+            <li>
+              <button
+                :class="{ active: featuredProductsActiveTab === tab }"
+                @click="handleChangeFeaturedProductsActiveTab(tab)"
+              >
+                {{ tab }}
+              </button>
+            </li>
+            <hr
+              class="line-orange"
+              v-if="index !== featuredProductsTabs.length - 1"
+            />
+          </template>
+        </ul>
+        <ul class="featured_products-arrows">
+          <li v-for="i in ['right', 'left']" :key="i">
+            <button>
+              <Arrow :width="22" color="#fdac16" :direction="i" fill="red" />
+            </button>
+          </li>
+        </ul>
+      </section>
+      <section class="featured_products-slider">
+        <!-- list of ProductCard -->
+      </section>
+    </section>
   </main>
 </template>
+
+<script setup>
+import { ref } from "vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import CreativeCard from "../components/Products/CreativeCard.vue";
+import Tools from "../components/icons/Tools.vue";
+import Categories from "../data/Categories.json";
+import Arrow from "../components/icons/Arrow.vue";
+
+const featuredProductsTabs = ref(["منتخب کاربران", "جدید ترین ها", "جراجی ها"]);
+const featuredProductsActiveTab = ref("منتخب کاربران");
+function handleChangeFeaturedProductsActiveTab(tab) {
+  featuredProductsActiveTab.value = tab;
+}
+</script>
