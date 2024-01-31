@@ -249,15 +249,34 @@
         />
       </section>
     </section>
+
+    <section class="partners container">
+      <section class="partners-header">
+        <h3 class="section-title orange center large">برند های برتر</h3>
+      </section>
+      <section class="partners-slider">
+        <Swiper
+          :slides-per-view="9"
+          :autoplay="true"
+          :modules="[Autoplay, Navigation]"
+          :navigation="{ enabled: true }"
+          :space-between="30"
+          :loop="true"
+        >
+          <SwiperSlide v-for="i in 15">کوکاکولا</SwiperSlide>
+        </Swiper>
+      </section>
+    </section>
   </main>
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 import CreativeCard from "../components/Products/CreativeCard.vue";
 import Tools from "../components/icons/Tools.vue";
 import Categories from "../data/Categories.json";
