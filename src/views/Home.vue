@@ -186,6 +186,45 @@
         </section>
       </section>
     </section>
+
+    <section class="monthly_off-container">
+      <section class="monthly_off-inner container">
+        <section class="monthly_off-description">
+          <p>
+            سوپر <span>تخفیف</span> این ماه با قیمت <span>2,450,000 تومان</span>
+          </p>
+          <h3>
+            اره زنجیری بنزینی 64 سی سی رونیکس <br />
+            <span>مدل 5702</span>
+          </h3>
+          <section class="countdown">
+            <section class="countdown-second">
+              <h6>04</h6>
+              <span>ثانیه</span>
+            </section>
+            <section class="countdown-minute">
+              <h6>21</h6>
+              <span>دقیقه</span>
+            </section>
+            <section class="countdown-hour">
+              <h6>14</h6>
+              <span>ساعت</span>
+            </section>
+            <section class="countdown-day">
+              <h6>21</h6>
+              <span>روز</span>
+            </section>
+          </section>
+        </section>
+        <section class="monthly_off-img_container">
+          <span class="monthly_off-off_amount">-15%</span>
+          <img
+            src="/public/images/Products/Chainsaw.svg"
+            alt="chainsaw image"
+          />
+        </section>
+      </section>
+    </section>
   </main>
 </template>
 
