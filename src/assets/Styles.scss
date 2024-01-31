@@ -268,30 +268,20 @@ header {
       display: flex;
       justify-content: space-between;
       margin-bottom: 15px;
-      ul {
+      .featured_products-options {
         display: flex;
-        &.featured_products-options {
-          align-items: center;
-          gap: 15px;
-          hr {
-            height: 75%;
-          }
-
-          button {
-            color: rgba($color: $text, $alpha: 0.5);
-            font-size: 16px;
-            line-height: 24px;
-            &.active {
-              color: $text;
-            }
-          }
+        align-items: center;
+        gap: 15px;
+        hr {
+          height: 75%;
         }
-        &.featured_products-arrows {
-          gap: 7px;
-          button {
-            background-color: $lightWhite;
-            border-radius: 8px;
-            padding: 2px;
+
+        button {
+          color: rgba($color: $text, $alpha: 0.5);
+          font-size: 16px;
+          line-height: 24px;
+          &.active {
+            color: $text;
           }
         }
       }
@@ -302,6 +292,84 @@ header {
     display: block;
     img {
       border-radius: 32px;
+    }
+  }
+
+  .three_columned_list-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-block: 100px;
+    .most_off-container,
+    .most_rate-container,
+    .most_sale-container {
+      max-height: fit-content !important;
+      .most_off-header,
+      .most_rate-header,
+      .most_sale-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+    }
+    .swiper {
+      max-height: 564px;
+      .swiper-slide {
+        height: 100%;
+        max-height: 178px !important;
+      }
+    }
+  }
+}
+
+// HorizontalCard.vue
+.horizontal_card-container {
+  background-color: $lightWhite;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 15px;
+
+  .horizontal_card-img {
+    width: 100%;
+    max-width: 148px;
+    border-radius: 8px;
+  }
+  .horizontal_card-description {
+    .horizontal_card-name_brand-container {
+      .horizontal_card-name {
+        font-size: 16px;
+        line-height: 24px;
+        color: $text;
+      }
+      .horizontal_card-brand {
+        color: rgba($color: $text, $alpha: 0.5);
+      }
+    }
+
+    .horizontal_card-rating {
+      margin-block: 10px 15px;
+    }
+
+    .horizontal_card-price {
+      .horizontal_card-new_price {
+        font-size: 16px;
+        line-height: 24px;
+      }
+      .horizontal_card-old_price_off {
+        display: flex;
+        gap: 10px;
+        .horizontal_card-old_price {
+          color: rgba($color: $text, $alpha: 0.5);
+          text-decoration: line-through;
+        }
+        .horizontal_card-off {
+          direction: ltr;
+          font-weight: 600;
+          color: $orange;
+        }
+      }
     }
   }
 }
@@ -337,6 +405,11 @@ button {
     background-color: $text;
     right: 0;
     bottom: 0;
+  }
+  &.orange {
+    &::after {
+      background-color: $orange;
+    }
   }
 }
 .line-through {
@@ -433,4 +506,19 @@ hr.line-orange {
       gap: 15px;
     }
   }
+}
+
+.arrows-hr,
+.arrows-vr {
+  display: flex;
+  gap: 7px;
+  button {
+    background-color: $lightWhite;
+    border-radius: 4px;
+  }
+}
+.arrows-vr {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
