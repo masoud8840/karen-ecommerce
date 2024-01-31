@@ -197,21 +197,22 @@
             اره زنجیری بنزینی 64 سی سی رونیکس <br />
             <span>مدل 5702</span>
           </h3>
+
           <section class="countdown">
             <section class="countdown-second">
-              <h6>04</h6>
+              <h6>{{ countdown.seconds }}</h6>
               <span>ثانیه</span>
             </section>
             <section class="countdown-minute">
-              <h6>21</h6>
+              <h6>{{ countdown.minutes }}</h6>
               <span>دقیقه</span>
             </section>
             <section class="countdown-hour">
-              <h6>14</h6>
+              <h6>{{ countdown.hours }}</h6>
               <span>ساعت</span>
             </section>
             <section class="countdown-day">
-              <h6>21</h6>
+              <h6>{{ countdown.days }}</h6>
               <span>روز</span>
             </section>
           </section>
@@ -229,7 +230,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -245,4 +246,32 @@ const featuredProductsActiveTab = ref("منتخب کاربران");
 function handleChangeFeaturedProductsActiveTab(tab) {
   featuredProductsActiveTab.value = tab;
 }
+
+const countdown = ref({
+  seconds: 0,
+  minutes: 0,
+  hours: 0,
+  days: 0,
+});
+
+function setCountdown() {
+  setInterval(() => {
+    const now = new Date().getTime();
+    const offEndTime = new Date(2024, 2, 0).getTime();
+    const distance = offEndTime - now;
+
+    countdown.value.seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    countdown.value.minutes = Math.floor(
+      (distance % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    countdown.value.hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    countdown.value.days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  }, 1000);
+}
+
+onMounted(() => {
+  setCountdown();
+});
 </script>
