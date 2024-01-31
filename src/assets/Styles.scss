@@ -392,6 +392,39 @@ header {
       }
     }
   }
+
+  .banner_1x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-block: 100px;
+    .product_banner-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $lightWhite;
+      border-radius: 32px;
+      padding: 15px;
+      gap: 30px;
+      .product_banner-category {
+        color: rgba($color: $text, $alpha: 0.5);
+      }
+      .product_banner-name,
+      .product_banner-name:has(span) span {
+        font-size: 22px;
+        line-height: 33px;
+        font-weight: 600;
+        color: $text;
+        margin-block: 5px;
+      }
+      a {
+        color: $text;
+        display: inline-flex;
+        gap: 5px;
+        color: $orange;
+      }
+    }
+  }
 }
 
 // HorizontalCard.vue

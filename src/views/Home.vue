@@ -226,6 +226,29 @@
         </section>
       </section>
     </section>
+
+    <section class="banner_1x2 container">
+      <section
+        class="product_banner-container"
+        v-for="(banner, index) in banner1x2"
+        :key="index"
+      >
+        <section class="product_banner-description">
+          <span class="product_banner-category">{{ banner.category }}</span>
+          <h3 class="product_banner-name">
+            {{ banner.name }}
+            <span class="product_banner-model">{{ banner.model }}</span>
+          </h3>
+          <router-link :to="{ name: 'Home' }">
+            <Arrow :width="21" direction="right" color="#fdac16" /> مشاهده بیشتر
+          </router-link>
+        </section>
+        <img
+          :src="`/public/images/Products/${banner.img}.svg`"
+          :alt="`${banner.name} ${banner.model}`"
+        />
+      </section>
+    </section>
   </main>
 </template>
 
@@ -274,4 +297,19 @@ function setCountdown() {
 onMounted(() => {
   setCountdown();
 });
+
+const banner1x2 = ref([
+  {
+    category: "جک خودرو",
+    name: "جک روغنی هیدرولیک 10 تن",
+    model: "مدل 4333",
+    img: "HydrolicJack",
+  },
+  {
+    category: "موتور برق",
+    name: "موتور برق 7500W",
+    model: "مدل G1200",
+    img: "7500WGenerator",
+  },
+]);
 </script>
