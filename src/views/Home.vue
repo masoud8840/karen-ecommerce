@@ -267,6 +267,18 @@
         </Swiper>
       </section>
     </section>
+
+    <section class="newsletter-container background_layer">
+      <section class="newsletter-inner container">
+        <h3>عضویت در خبرنامه</h3>
+        <p>برای اطلاع از اخرین خبر ها و تخفیفات در خبرنامه مشترک شوید</p>
+        <section class="input_group">
+          <input type="text" name="newsletterInput" id="newsletterInput" placeholder="شماره تماس یا ایمیل">
+          <button>ثبت نام</button>
+        </section>
+      </section>
+
+    </section>
   </main>
 </template>
 
