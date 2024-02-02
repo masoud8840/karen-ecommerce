@@ -406,7 +406,6 @@ header {
           position: absolute;
           top: 15px;
           right: 15px;
-          direction: ltr;
           @include Text(700,18px,27px);
           color: $orange;
         }
@@ -568,7 +567,6 @@ header {
         }
 
         .horizontal_card-off {
-          direction: ltr;
           font-weight: 600;
           color: $orange;
         }
@@ -726,8 +724,7 @@ hr.line-orange {
       position: absolute;
       right: 15px;
       top: 15px;
-      direction: ltr;
-      color: #fff;
+      color: $orange;
       @include Text(600,16px,24px);
     }
   }
@@ -788,4 +785,8 @@ hr.line-orange {
   display: flex;
   flex-direction: column;
   gap: 7px;
+}
+
+.ltr {
+  direction: ltr;
 }

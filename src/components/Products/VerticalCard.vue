@@ -2,7 +2,7 @@
   <section class="vertical_card-base">
     <section class="vertical_card-image_container">
       <img src="/public/images/PlaceholderImage.avif" alt="product image" />
-      <span class="off_percentage">-15%</span>
+      <span class="off_percentage ltr">-15%</span>
     </section>
     <section class="vertical_card-header">
       <section class="vertical_card-heading">

@@ -13,7 +13,7 @@
         <h6 class="horizontal_card-new_price">3,100,000</h6>
         <section class="horizontal_card-old_price_off">
           <p class="horizontal_card-old_price">4,500,000</p>
-          <span class="horizontal_card-off">-15%</span>
+          <span class="horizontal_card-off ltr">-15%</span>
         </section>
       </section>
     </section>

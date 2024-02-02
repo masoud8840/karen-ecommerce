@@ -218,7 +218,7 @@
           </section>
         </section>
         <section class="monthly_off-img_container">
-          <span class="monthly_off-off_amount">-15%</span>
+          <span class="monthly_off-off_amount ltr">-15%</span>
           <img
             src="/public/images/Products/Chainsaw.svg"
             alt="chainsaw image"
