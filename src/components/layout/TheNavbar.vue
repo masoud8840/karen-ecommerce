@@ -1,13 +1,13 @@
 <template>
   <header>
     <nav :class="{ extended: isExtended, navbar: true, container: true }">
-      <ul class="navbar-inner">
-        <router-link :to="{ name: 'Home' }">
-          <Logo />
+      <section class="navbar-inner">
+        <router-link :to="{ name: 'Home' }" class="navbar_logo_link">
+          <Logo class="navbar_logo" />
         </router-link>
         <hr class="horizontal-line" />
         <button
-          @click="isDropdownOpen = !isDropdownOpen"
+          @click="toggleDropdown"
           class="dropdown-toggler"
         >
           محصولات
@@ -15,7 +15,8 @@
         </button>
         <transition name="dropdown" mode="out-in">
           <ul class="container dropdown" v-if="isDropdownOpen">
-            <li v-for="(category, i) in Categries" :key="i">
+            <Close :width="32" hover-color="#fdac16" class="dropdown-close_btn" @click="toggleDropdown"/>
+            <li class="dropdown-parent_category" v-for="(category, i) in Categries" :key="i">
               <h4 class="section-title">{{ category.title }}</h4>
               <ul>
                 <li v-for="(link, j) in category.options" :key="j">
@@ -27,16 +28,16 @@
             </li>
           </ul>
         </transition>
-      </ul>
-      <ul class="navbar-inner">
+      </section>
+      <section class="navbar-inner">
         <router-link :to="{ name: 'Home' }">
-          <Bag :width="32" />
+          <Bag color="#39354C7f"  :width="32" />
         </router-link>
-        <hr class="horizontal-line" />
+        <hr class="horizontal-line semi-transparent" />
         <router-link :to="{ name: 'Home' }">
-          <User :width="32" />
+          <User color="#39354C7f" :width="32" />
         </router-link>
-      </ul>
+      </section>
     </nav>
   </header>
 </template>
@@ -47,16 +48,16 @@ import User from "../icons/User.vue";
 import Logo from "../icons/Logo.vue";
 import Bag from "../icons/Bag.vue";
 import Arrow from "../icons/Arrow.vue";
+import Close from "../icons/Close.vue";
 import Categries from "../../data/Categories.json";
 
 const isDropdownOpen = ref(false);
+function toggleDropdown(){
+  isDropdownOpen.value = !isDropdownOpen.value
+}
 const isExtended = ref(true);
 function scrollHandler() {
-  if (window.scrollY > 50) {
-    isExtended.value = false;
-  } else {
-    isExtended.value = true;
-  }
+  isExtended.value = window.scrollY <= 50;
 }
 window.addEventListener("scroll", scrollHandler);
 </script>

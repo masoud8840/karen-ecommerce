@@ -27,6 +27,12 @@ header {
   z-index: 1000;
   background-color: rgba($color: #fff, $alpha: 0.5);
 
+  .navbar_logo_link {
+    display: flex;
+    .navbar_logo {
+    max-width: 128px;
+    }
+  }
   .navbar {
     transition: padding 0.2s;
     padding-block: 15px;
@@ -34,20 +40,30 @@ header {
     justify-content: space-between;
     position: relative;
     z-index: 1001;
-
+    padding-inline: 15px;
     &.extended {
       padding-top: 30px;
     }
-
-    ul.navbar-inner {
+    .navbar-inner {
       display: flex;
       align-items: center;
       gap: 15px;
+      &:nth-child(2) {
+        a {
+          display: flex;
+        }
+        svg {
+          max-width: 24px;
+        }
+      }
     }
 
     .horizontal-line {
-      height: 85%;
+      height: 75%;
       border: 1px solid $text;
+      &.semi-transparent {
+        border-color: rgba($color: $text, $alpha: 0.5);
+      }
     }
   }
 
@@ -57,47 +73,83 @@ header {
     gap: 5px;
   }
 
-  ul.dropdown {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
+  .dropdown {
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow: auto;
+    height: 100vh;
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
     gap: 30px;
     background-color: $lightWhite;
-    padding: 25px;
-    position: absolute;
-    bottom: -483px;
-    border-radius: 16px;
-    box-shadow: 0 10px 20px rgba($color: $text, $alpha: 0.1);
-
     &.dropdown-enter-from {
-      transform: translateY(30px);
-      opacity: 0;
+      transform: translateX(100%);
     }
-
-    &.dropdown-enter-active {
-      transition: all 0.25s ease-out;
+    &.dropdown-enter-active,&.dropdown-leave-active {
+      transition: all 0.35s ease-in-out;
     }
-
-    &.dropdown-leave-active {
-      transition: all 0.25s ease-in;
-    }
-
     &.dropdown-leave-to {
-      transform: translateY(30px);
-      opacity: 0;
+      transform: translateX(100%);
     }
-
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding-top: 15px;
-
-      a {
-        color: rgba($color: $text, $alpha: 0.5);
-        &:hover {
-          color: $text;
+    .dropdown-parent_category {
+      h4 {
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        a {
+          color: rgba($color: $text, $alpha: 0.5);
+          &:hover {
+            color: $text;
+          }
         }
       }
+    }
+    .dropdown-close_btn {
+      position: absolute;
+      top: 30px;
+      left: 15px;
+      cursor: pointer;
+    }
+  }
+
+
+  @media (width > 1200px) {
+      svg {
+        max-width: none !important;
+      }
+    .navbar {
+      padding-inline: 0;
+    }
+    ul.dropdown {
+      height: initial;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 30px;
+      background-color: $lightWhite;
+      padding: 25px;
+      position: absolute;
+      bottom: -543px;
+      top: initial;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba($color: $text, $alpha: 0.1);
+
+      &.dropdown-enter-from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+      &.dropdown-enter-active,&.dropdown-leave-active {
+      transition: all 0.35s ease-out;
+    }
+      &.dropdown-leave-to {
+      transform: translateY(30px);
+      opacity: 0;
+    }
     }
   }
 }
@@ -106,8 +158,8 @@ header {
   padding-top: 100px;
 
   .categories-showcase {
-    @media (width > 576px) {
-      & {
+  @media (width > 576px) {
+    & {
         min-height: 100vh;
         grid-template-columns: repeat(2,1fr);
       }
