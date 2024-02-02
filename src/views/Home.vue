@@ -1,21 +1,12 @@
 <template>
   <main class="home-view">
     <section class="categories-showcase container">
-      <article class="showcase1">
-        <h3>Showcase 1</h3>
-      </article>
-      <article class="showcase2">
+      <article v-for="(showcase,index) in showcaseItems" :key="index" :class="`showcase${index}`">
         <section class="showcase-overlay">
-          <router-link :to="{ name: 'Home' }">
-            جعبه های ابزار آماده کارن
+          <router-link :to="{ name: showcase.link.name }">
+            {{showcase.title}}
           </router-link>
         </section>
-      </article>
-      <article class="showcase3">
-        <h3>Showcase 3</h3>
-      </article>
-      <article class="showcase4">
-        <h3>Showcase 4</h3>
       </article>
     </section>
 
@@ -295,6 +286,34 @@ import Categories from "../data/Categories.json";
 import Arrow from "../components/icons/Arrow.vue";
 import VerticalCard from "../components/Products/VerticalCard.vue";
 import HorizontalCard from "../components/Products/HorizontalCard.vue";
+
+
+const showcaseItems = ref([
+  {
+    link: {
+      name: "Home",
+    },
+    title: "دستگاه جوش",
+  },
+  {
+    link: {
+      name: "Home",
+    },
+    title: "جعبه های ابزار آماده کارن",
+  },
+  {
+    link: {
+      name: "Home",
+    },
+    title: "دمنده",
+  },
+  {
+    link: {
+      name: "Home",
+    },
+    title: "موتور های برق",
+  },
+])
 const featuredProductsTabs = ref(["منتخب کاربران", "جدید ترین ها", "جراجی ها"]);
 const featuredProductsActiveTab = ref("منتخب کاربران");
 function handleChangeFeaturedProductsActiveTab(tab) {
