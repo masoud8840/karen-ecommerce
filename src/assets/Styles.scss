@@ -443,8 +443,7 @@ header {
   }
 
   .newsletter-container {
-    margin-bottom: 100px;
-    background-image: url('/public/images/NewsletterBackground.svg');
+    background-image: url("/public/images/NewsletterBackground.svg");
     background-size: cover;
     background-repeat: no-repeat;
     padding-block: 90px;
@@ -466,8 +465,6 @@ header {
         line-height: 24px;
       }
     }
-
-
   }
 
   .input_group {
@@ -489,8 +486,8 @@ header {
       outline: 0;
       color: $text;
       &::placeholder {
-        color: rgba($color:$text,$alpha: 0.5);
-        transition: padding .15s;
+        color: rgba($color: $text, $alpha: 0.5);
+        transition: padding 0.15s;
       }
       &:focus {
         &::placeholder {
@@ -552,12 +549,47 @@ header {
     }
   }
 }
+// TheFooter.vue
+footer {
+  background-color: $lightWhite;
+  .footer-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 30px 0;
+    .footer_logo,
+    .section-title {
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+    section ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      a {
+        &:hover {
+          color: $orange;
+        }
+      }
+    }
+
+  }
+  .footer-copyright {
+    text-align: center;
+    background-color: #fff;
+    padding: 15px 0;
+  }
+}
 // Global Styles
+.text-orange {
+  color: $orange;
+}
 ul {
   list-style-type: none;
 }
 a {
   text-decoration: none;
+  color: $text;
 }
 button {
   background-color: transparent;
