@@ -31,11 +31,11 @@
       </section>
       <section class="navbar-inner">
         <router-link :to="{ name: 'Home' }">
-          <Bag color="#39354C7f"  :width="32" />
+          <Bag :width="32" />
         </router-link>
-        <hr class="horizontal-line semi-transparent" />
+        <hr class="horizontal-line" />
         <router-link :to="{ name: 'Home' }">
-          <User color="#39354C7f" :width="32" />
+          <User :width="32" />
         </router-link>
       </section>
     </nav>
