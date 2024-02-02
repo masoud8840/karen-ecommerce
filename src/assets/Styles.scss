@@ -9,6 +9,7 @@ $orange: #fdac16;
   padding: 0;
   box-sizing: border-box;
   font: 500 14px "Borna";
+  color: $text;
 }
 .container {
   width: 100%;
@@ -106,11 +107,7 @@ header {
         display: flex;
         align-items: end;
         padding: 25px;
-        background: linear-gradient(
-          to top,
-          rgba($color: $text, $alpha: 0.5),
-          rgba($color: $text, $alpha: 0.5)
-        );
+        background-color:rgba($color: $text, $alpha: 0.25);
         height: 100%;
         a {
           font-size: 22px;
@@ -143,7 +140,6 @@ header {
     h3 {
       font-size: 22px;
       line-height: 33px;
-      color: $text;
     }
     .swiper {
       background-color: $lightWhite;
@@ -196,7 +192,6 @@ header {
               background-color: $lightWhite;
               border-radius: 16px 0 0 0;
               padding: 7px 25px;
-              color: $text;
 
               &:hover {
                 color: $orange;
@@ -242,7 +237,6 @@ header {
         font-size: 24px;
         line-height: 38px;
         font-weight: 600;
-        color: $text;
         span {
           color: $orange;
         }
@@ -338,7 +332,6 @@ header {
       p:has(span) span {
         font-size: 16px;
         line-height: 24px;
-        color: $text;
 
         span {
           color: $orange !important;
@@ -347,7 +340,7 @@ header {
 
       h3,
       h3:has(span) span {
-        color: $text;
+
         font-weight: 600;
         font-size: 24px;
         line-height: 36px;
@@ -370,10 +363,6 @@ header {
             font-weight: 600;
             line-height: 33px;
             color: $orange;
-          }
-
-          span {
-            color: $text;
           }
         }
       }
@@ -414,11 +403,9 @@ header {
         font-size: 22px;
         line-height: 33px;
         font-weight: 600;
-        color: $text;
         margin-block: 5px;
       }
       a {
-        color: $text;
         display: inline-flex;
         gap: 5px;
         color: $orange;
@@ -484,7 +471,6 @@ header {
       border-radius: 4px;
       padding-inline: 10px;
       outline: 0;
-      color: $text;
       &::placeholder {
         color: rgba($color: $text, $alpha: 0.5);
         transition: padding 0.15s;
@@ -517,7 +503,6 @@ header {
       .horizontal_card-name {
         font-size: 16px;
         line-height: 24px;
-        color: $text;
       }
       .horizontal_card-brand {
         color: rgba($color: $text, $alpha: 0.5);
@@ -589,7 +574,6 @@ ul {
 }
 a {
   text-decoration: none;
-  color: $text;
 }
 button {
   background-color: transparent;
@@ -696,7 +680,6 @@ hr.line-orange {
       h5 {
         font-size: 16px;
         line-height: 24px;
-        color: $text;
         margin-bottom: 5px;
       }
       span {
@@ -716,7 +699,6 @@ hr.line-orange {
       .vertical_card-new_price {
         font-size: 16px;
         line-height: 24px;
-        color: $text;
       }
       .vertical_card-old_price {
         color: rgba($color: $text, $alpha: 0.5);
