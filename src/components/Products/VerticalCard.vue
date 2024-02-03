@@ -6,7 +6,7 @@
     </section>
     <section class="vertical_card-header">
       <section class="vertical_card-heading">
-        <h5>ست تکمیل لوازم کار کارن</h5>
+        <h5>ست لوازم کار کارن</h5>
         <span>فروشگاه کارن</span>
       </section>
       <section class="vertical_card-rating">

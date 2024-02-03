@@ -6,17 +6,23 @@
           <Logo class="navbar_logo" />
         </router-link>
         <hr class="horizontal-line" />
-        <button
-          @click="toggleDropdown"
-          class="dropdown-toggler"
-        >
+        <button @click="toggleDropdown" class="dropdown-toggler">
           محصولات
           <Arrow :width="18" :direction="isDropdownOpen ? 'up' : 'down'" />
         </button>
         <transition name="dropdown" mode="out-in">
           <ul class="container dropdown" v-if="isDropdownOpen">
-            <Close :width="32" hover-color="#fdac16" class="dropdown-close_btn" @click="toggleDropdown"/>
-            <li class="dropdown-parent_category" v-for="(category, i) in Categries" :key="i">
+            <Close
+              :width="32"
+              hover-color="#fdac16"
+              class="dropdown-close_btn"
+              @click="toggleDropdown"
+            />
+            <li
+              class="dropdown-parent_category"
+              v-for="(category, i) in Categries"
+              :key="i"
+            >
               <h4 class="section-title">{{ category.title }}</h4>
               <ul>
                 <li v-for="(link, j) in category.options" :key="j">
@@ -52,8 +58,8 @@ import Close from "../icons/Close.vue";
 import Categries from "../../data/Categories.json";
 
 const isDropdownOpen = ref(false);
-function toggleDropdown(){
-  isDropdownOpen.value = !isDropdownOpen.value
+function toggleDropdown() {
+  isDropdownOpen.value = !isDropdownOpen.value;
 }
 const isExtended = ref(true);
 function scrollHandler() {

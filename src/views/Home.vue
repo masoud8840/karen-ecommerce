@@ -1,10 +1,14 @@
 <template>
   <main class="home-view">
     <section class="categories-showcase container">
-      <article v-for="(showcase,index) in showcaseItems" :key="index" :class="`showcase${index}`">
+      <article
+        v-for="(showcase, index) in showcaseItems"
+        :key="index"
+        :class="`showcase${index}`"
+      >
         <section class="showcase-overlay">
           <router-link :to="{ name: showcase.link.name }">
-            {{showcase.title}}
+            {{ showcase.title }}
           </router-link>
         </section>
       </article>
@@ -12,10 +16,11 @@
 
     <section class="container categories-slider">
       <swiper
-        :slides-per-view="4"
-        :space-between="30"
-        :pagination="{ clickable: true }"
-        :modules="[Autoplay, Pagination]"
+        :slides-per-view="categoriesSliderConfig.slidesPerView"
+        :space-between="categoriesSliderConfig.spaceBetween"
+        :modules="categoriesSliderConfig.modules"
+        :pagination="categoriesSliderConfig.pagination"
+        :breakpoints="categoriesSliderConfig.breakPoints"
       >
         <swiper-slide>
           <h3>دسته بندی ها</h3>
@@ -23,7 +28,7 @@
           <button class="btn btn-primary">مشاهده همه</button>
         </swiper-slide>
         <swiper-slide v-for="(category, index) in Categories" :key="index">
-          <CreativeCard :title="category.title" />
+          <CreativeCard :title="category.title" :link="{ name: 'Home' }" />
         </swiper-slide>
       </swiper>
     </section>
@@ -70,100 +75,46 @@
         </ul>
       </section>
       <section class="featured_products-slider">
-        <Swiper :slides-per-view="3" :space-between="30">
-          <SwiperSlide><VerticalCard /></SwiperSlide>
-          <SwiperSlide><VerticalCard /></SwiperSlide>
-          <SwiperSlide><VerticalCard /></SwiperSlide>
-          <SwiperSlide><VerticalCard /></SwiperSlide>
+        <Swiper
+          :slides-per-view="featuredProductsSliderConfig.slidesPerView"
+          :space-between="featuredProductsSliderConfig.spaceBetween"
+          :breakpoints="featuredProductsSliderConfig.breakPoints"
+        >
+          <SwiperSlide v-for="product in 4" :key="product">
+            <VerticalCard />
+          </SwiperSlide>
         </Swiper>
       </section>
     </section>
 
-    <router-link :to="{ name: 'Home' }" class="fluid-banner container">
-      <img
-        src="/public/images/FluidBannerPlaceholder.png"
-        alt="banner"
-        class=""
-      />
-    </router-link>
+    <section class="fluid_banner container">
+      <router-link :to="{ name: 'Home' }">
+        <img src="/public/images/FluidBannerPlaceholder.png" alt="banner" />
+      </router-link>
+    </section>
 
     <section class="three_columned_list-container container">
-      <section class="most_off-container">
-        <section class="most_off-header">
-          <h3 class="section-title orange">پر تخفیف ترین ها</h3>
+      <section
+        v-for="(column, index) in threeColumnedListData"
+        :key="index"
+        :class="`${column.class}-container`"
+      >
+        <section :class="`${column.class}-header`">
+          <h3 class="section-title orange">{{ column.title }}</h3>
           <ul class="arrows-vr">
             <li>
               <button>
-                <Arrow :width="12" direction="up" color="#fdac16" />
+                <Arrow :width="14" direction="up" color="#fdac16" />
               </button>
             </li>
             <li>
               <button>
-                <Arrow :width="12" direction="down" color="#fdac16" />
+                <Arrow :width="14" direction="down" color="#fdac16" />
               </button>
             </li>
           </ul>
         </section>
-        <section class="most_off-products_list">
-          <Swiper
-            direction="vertical"
-            :slides-per-view="2"
-            :space-between="15"
-            :height="564"
-          >
-            <SwiperSlide v-for="i in 5">
-              <HorizontalCard />
-            </SwiperSlide>
-          </Swiper>
-        </section>
-      </section>
-      <section class="most_sale-container">
-        <section class="most_sale-header">
-          <h3 class="section-title orange">پر فروش ترین ها</h3>
-          <ul class="arrows-vr">
-            <li>
-              <button>
-                <Arrow :width="12" direction="up" color="#fdac16" />
-              </button>
-            </li>
-            <li>
-              <button>
-                <Arrow :width="12" direction="down" color="#fdac16" />
-              </button>
-            </li>
-          </ul>
-        </section>
-        <section class="most_sale-products_list">
-          <Swiper
-            direction="vertical"
-            :slides-per-view="2"
-            :space-between="15"
-            :height="564"
-          >
-            <SwiperSlide v-for="i in 5">
-              <HorizontalCard />
-            </SwiperSlide>
-          </Swiper>
-        </section>
-      </section>
-      <section class="most_rate-container">
-        <section class="most_rate-header">
-          <h3 class="section-title orange">پر ستاره ترین ها</h3>
-          <ul class="arrows-vr">
-            <li>
-              <button>
-                <Arrow :width="12" direction="up" color="#fdac16" />
-              </button>
-            </li>
-            <li>
-              <button>
-                <Arrow :width="12" direction="down" color="#fdac16" />
-              </button>
-            </li>
-          </ul>
-        </section>
-
-        <section class="most_rate-products_list">
+        <section :class="`${column.class}-products_list`">
           <Swiper
             direction="vertical"
             :slides-per-view="2"
@@ -208,6 +159,7 @@
             </section>
           </section>
         </section>
+
         <section class="monthly_off-img_container">
           <span class="monthly_off-off_amount ltr">-15%</span>
           <img
@@ -231,7 +183,8 @@
             <span class="product_banner-model">{{ banner.model }}</span>
           </h3>
           <router-link :to="{ name: 'Home' }">
-            <Arrow :width="21" direction="right" color="#fdac16" /> مشاهده بیشتر
+            <Arrow :width="21" direction="right" color="#fdac16" />
+            مشاهده بیشتر
           </router-link>
         </section>
         <img
@@ -247,12 +200,13 @@
       </section>
       <section class="partners-slider">
         <Swiper
-          :slides-per-view="9"
-          :autoplay="true"
-          :modules="[Autoplay, Navigation]"
-          :navigation="{ enabled: true }"
-          :space-between="30"
-          :loop="true"
+          :slides-per-view="partnersSliderConfig.slidesPerView"
+          :autoplay="partnersSliderConfig.autoplay"
+          :modules="partnersSliderConfig.modules"
+          :navigation="partnersSliderConfig.navigation"
+          :space-between="partnersSliderConfig.spaceBetween"
+          :loop="partnersSliderConfig.loop"
+          :breakpoints="partnersSliderConfig.breakPoints"
         >
           <SwiperSlide v-for="i in 15">کوکاکولا</SwiperSlide>
         </Swiper>
@@ -264,11 +218,15 @@
         <h3>عضویت در خبرنامه</h3>
         <p>برای اطلاع از اخرین خبر ها و تخفیفات در خبرنامه مشترک شوید</p>
         <section class="input_group">
-          <input type="text" name="newsletterInput" id="newsletterInput" placeholder="شماره تماس یا ایمیل">
+          <input
+            type="text"
+            name="newsletterInput"
+            id="newsletterInput"
+            placeholder="شماره تماس یا ایمیل"
+          />
           <button>ثبت نام</button>
         </section>
       </section>
-
     </section>
   </main>
 </template>
@@ -286,7 +244,6 @@ import Categories from "../data/Categories.json";
 import Arrow from "../components/icons/Arrow.vue";
 import VerticalCard from "../components/Products/VerticalCard.vue";
 import HorizontalCard from "../components/Products/HorizontalCard.vue";
-
 
 const showcaseItems = ref([
   {
@@ -313,12 +270,49 @@ const showcaseItems = ref([
     },
     title: "موتور های برق",
   },
-])
+]);
+const categoriesSliderConfig = ref({
+  slidesPerView: 1,
+  spaceBetween: 30,
+  pagination: { clickable: true },
+  modules: [Autoplay, Pagination],
+  breakPoints: {
+    576: { slidesPerView: 2 },
+    768: { slidesPerView: 3 },
+    968: { slidesPerView: 4 },
+    1200: { slidesPerView: 5 },
+  },
+});
+
+const featuredProductsSliderConfig = ref({
+  slidesPerView: 1,
+  spaceBetween: 30,
+  breakPoints: {
+    768: { slidesPerView: 2 },
+    1100: { slidesPerView: 3 },
+  },
+});
 const featuredProductsTabs = ref(["منتخب کاربران", "جدید ترین ها", "جراجی ها"]);
 const featuredProductsActiveTab = ref("منتخب کاربران");
+
 function handleChangeFeaturedProductsActiveTab(tab) {
   featuredProductsActiveTab.value = tab;
 }
+
+const threeColumnedListData = ref([
+  {
+    title: "پر تخفیف ترین ها",
+    class: "most_off",
+  },
+  {
+    title: "پر فروش ترین ها",
+    class: "most_sale",
+  },
+  {
+    title: "پر ستاره ترین ها",
+    class: "most_rate",
+  },
+]);
 
 const countdown = ref({
   seconds: 0,
@@ -362,4 +356,27 @@ const banner1x2 = ref([
     img: "7500WGenerator",
   },
 ]);
+
+const partnersSliderConfig = ref({
+  slidesPerView: 1,
+  autoplay: true,
+  modules: [Autoplay, Navigation],
+  navigation: { enabled: true },
+  spaceBetween: 0,
+  loop: true,
+  breakPoints: {
+    576: {
+      slidesPerView: 3,
+    },
+    768: {
+      slidesPerView: 5,
+    },
+    968: {
+      slidesPerView: 8,
+    },
+    1200: {
+      slidesPerView: 10,
+    },
+  },
+});
 </script>
