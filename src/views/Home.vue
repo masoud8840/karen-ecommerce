@@ -88,10 +88,9 @@
     </section>
 
     <section class="fluid_banner container">
-      <!-- <router-link :to="{ name: 'Home' }">
+      <router-link :to="{ name: 'Home' }">
         <img src="/public/images/FluidBannerPlaceholder.png" alt="banner" />
-      </router-link> -->
-      <CardBase gridOrList="list" />
+      </router-link>
     </section>
 
     <section class="three_columned_list-container container">
@@ -243,7 +242,6 @@ import CreativeCard from "../components/Products/CreativeCard.vue";
 import Tools from "../components/icons/Tools.vue";
 import Categories from "../data/Categories.json";
 import Arrow from "../components/icons/Arrow.vue";
-import VerticalCard from "../components/Products/VerticalCard.vue";
 import HorizontalCard from "../components/Products/HorizontalCard.vue";
 import CardBase from "../components/Products/CardBase.vue";
 
