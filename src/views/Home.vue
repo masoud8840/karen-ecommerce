@@ -81,16 +81,17 @@
           :breakpoints="featuredProductsSliderConfig.breakPoints"
         >
           <SwiperSlide v-for="product in 4" :key="product">
-            <VerticalCard />
+            <CardBase gridOrList="grid" />
           </SwiperSlide>
         </Swiper>
       </section>
     </section>
 
     <section class="fluid_banner container">
-      <router-link :to="{ name: 'Home' }">
+      <!-- <router-link :to="{ name: 'Home' }">
         <img src="/public/images/FluidBannerPlaceholder.png" alt="banner" />
-      </router-link>
+      </router-link> -->
+      <CardBase gridOrList="list" />
     </section>
 
     <section class="three_columned_list-container container">
@@ -244,6 +245,7 @@ import Categories from "../data/Categories.json";
 import Arrow from "../components/icons/Arrow.vue";
 import VerticalCard from "../components/Products/VerticalCard.vue";
 import HorizontalCard from "../components/Products/HorizontalCard.vue";
+import CardBase from "../components/Products/CardBase.vue";
 
 const showcaseItems = ref([
   {

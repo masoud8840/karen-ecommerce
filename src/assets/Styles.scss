@@ -555,7 +555,6 @@ header {
         @include Text(400, 14px, 21px);
       }
     }
-
   }
 
   .input_group {
@@ -684,6 +683,10 @@ footer {
 // Global Styles
 .text-orange {
   color: $orange;
+}
+
+.text-muted {
+  color: rgba($color: $text, $alpha: 0.5);
 }
 
 ul {
@@ -850,6 +853,7 @@ hr.line-orange {
 .ltr {
   direction: ltr;
 }
+
 // Media Queries
 @media (width > 430px) {
   header {
@@ -879,6 +883,7 @@ hr.line-orange {
       span {
         @include Text(600, 24px, 36px);
       }
+
       p {
         @include Text(500, 16px, 24px);
       }
@@ -1022,9 +1027,11 @@ hr.line-orange {
     svg {
       max-width: none !important;
     }
+
     .navbar {
       padding-inline: 0;
     }
+
     ul.dropdown {
       height: initial;
       display: grid;
@@ -1131,6 +1138,165 @@ hr.line-orange {
     .newsletter-container {
       .newsletter-inner {
         padding-inline: 0;
+      }
+    }
+  }
+}
+
+// Components
+// Products/CardBase
+.product_card_base-container {
+  background-color: $lightWhite;
+  padding: 15px;
+  border-radius: 16px;
+  &.list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .product_card_base-image_container {
+      img {
+        width: 100%;
+        aspect-ratio: 16/9;
+      }
+    }
+
+    .product_card_base-header {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .product_card_base-body {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 100%;
+      .product_card_base-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        .product_card_base-actions {
+          display: flex;
+          gap: 5px;
+        }
+      }
+    }
+
+    @media (width > 576px) {
+      &.list {
+        flex-direction: row;
+        align-items: center;
+
+        .product_card_base-image_container {
+          img {
+            width: 210px;
+            aspect-ratio: 16/9;
+          }
+        }
+        .product_card_base-body {
+          gap: 30px;
+        }
+        .product_card_base-header {
+          gap: 5px;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        .product_card_base-footer {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+  &.grid {
+    .product_card_base-image_container {
+      img {
+        aspect-ratio: 16/9;
+        border-radius: 8px;
+      }
+      margin-bottom: 15px;
+    }
+
+    .product_card_base-header {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .product_card_base-body {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .product_card_base-footer {
+      flex-direction: column;
+      gap: 5px;
+    }
+    @media (width > 576px) {
+      &.grid {
+        .product_card_base-image_container {
+          img {
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+          }
+          margin-bottom: 15px;
+        }
+
+        .product_card_base-header {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: start;
+        }
+
+        .product_card_base-body {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+        .product_card_base-footer {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  .product_card_base-title {
+    @include Text(600, 16px, 24px);
+  }
+  .product_card_base-seller {
+    font-weight: 400;
+  }
+  .product_card_base-rating {
+    display: flex;
+  }
+
+  .product_card_base-footer {
+    display: flex;
+    justify-content: space-between;
+
+    .product_card_base-actions {
+      display: flex;
+      align-items: start;
+      gap: 5px;
+    }
+    .product_card_base-price {
+      .product_card_base-new_price {
+        // margin-bottom: 5px;
+        @include Text(500, 16px, 24px);
+      }
+
+      .product_card_base-old_price {
+        text-decoration: line-through;
+        text-decoration-color: rgba($color: $text, $alpha: 0.25);
+      }
+      section {
+        display: flex;
+        gap: 5px;
+        .product_card_base-off_percent {
+          font-weight: 600;
+          color: $orange;
+        }
       }
     }
   }
