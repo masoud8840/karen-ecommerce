@@ -1143,6 +1143,107 @@ hr.line-orange {
   }
 }
 
+// ProductsList.vue
+.products_list-view {
+  padding-top: 100px;
+  .products_list-header {
+    background-color: $lightWhite;
+    .products_list_header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .products_list-heading {
+        h3 {
+          @include Text(600, 28px, 42px);
+        }
+        p {
+          @include Text(500, 16px, 24px);
+        }
+      }
+    }
+  }
+  .products_list-body {
+    margin-top: 100px;
+    .products_list-result_and_view_type {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      .products_list-view_type {
+        display: flex;
+        gap: 5px;
+        button {
+          svg {
+            path {
+              fill: $text;
+            }
+          }
+          &:hover {
+            svg path {
+              fill: $orange;
+            }
+          }
+          &.active {
+            svg path {
+              fill: $orange;
+            }
+          }
+        }
+      }
+    }
+
+    .products_list-filter_tags {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      button {
+        background-color: $lightWhite;
+        padding: 5px 15px;
+        border-radius: 6px;
+        font-weight: 400;
+        &.active {
+          background-color: $orange;
+          color: #fff;
+        }
+      }
+    }
+    .products_list-list {
+      display: grid;
+      gap: 30px;
+      margin-bottom: 30px;
+      &[data-view="grid"] {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      &[data-view="list"] {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+    .products_list-paginations {
+      margin-bottom: 100px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .products_list_pagination-inner {
+        display: flex;
+        gap: 10px;
+        button {
+          width: 100%;
+          width: 32px;
+          aspect-ratio: 1/1;
+          border-radius: 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $lightWhite;
+          &.active {
+            background-color: $orange;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
 // Components
 // Products/CardBase
 .product_card_base-container {
@@ -1210,6 +1311,7 @@ hr.line-orange {
   &.grid {
     .product_card_base-image_container {
       img {
+        width: 100%;
         aspect-ratio: 16/9;
         border-radius: 8px;
       }
