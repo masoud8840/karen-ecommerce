@@ -944,11 +944,35 @@ hr.line-orange {
       }
     }
   }
+
+  // ProductsList.vue
+  main.products_list-view {
+    .products_list-header .products_list_header-inner {
+      padding-block: 0;
+      text-align: right;
+      justify-content: space-between;
+      padding: 30px 15px;
+      img {
+        display: block;
+        max-height: 200px;
+      }
+    }
+  }
 }
 
 @media (width > 620px) {
   .banner-2x2.container {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  main.products_list-view {
+    .products_list-body {
+      .products_list-list {
+        &[data-view="grid"] {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
   }
 }
 
@@ -1017,6 +1041,16 @@ hr.line-orange {
 
       .company_description {
         grid-column: initial;
+      }
+    }
+  }
+
+  main.products_list-view {
+    .products_list-body {
+      .products_list-list {
+        &[data-view="grid"] {
+          grid-template-columns: repeat(3, 1fr);
+        }
       }
     }
   }
@@ -1141,6 +1175,16 @@ hr.line-orange {
       }
     }
   }
+
+  main.products_list-view {
+    .products_list_header-inner {
+      padding-inline: 0;
+    }
+
+    .products_list-body {
+      padding-inline: 0;
+    }
+  }
 }
 
 // ProductsList.vue
@@ -1151,7 +1195,10 @@ hr.line-orange {
     .products_list_header-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      text-align: center;
+      padding-block: 60px;
+
       .products_list-heading {
         h3 {
           @include Text(600, 28px, 42px);
@@ -1160,10 +1207,16 @@ hr.line-orange {
           @include Text(500, 16px, 24px);
         }
       }
+
+      img {
+        display: none;
+      }
     }
   }
+
   .products_list-body {
     margin-top: 100px;
+    padding-inline: 15px;
     .products_list-result_and_view_type {
       display: flex;
       justify-content: space-between;
@@ -1195,6 +1248,7 @@ hr.line-orange {
       display: flex;
       gap: 15px;
       margin-bottom: 30px;
+      flex-wrap: wrap;
       button {
         background-color: $lightWhite;
         padding: 5px 15px;
@@ -1211,7 +1265,7 @@ hr.line-orange {
       gap: 30px;
       margin-bottom: 30px;
       &[data-view="grid"] {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(1, 1fr);
       }
       &[data-view="list"] {
         grid-template-columns: repeat(1, 1fr);
