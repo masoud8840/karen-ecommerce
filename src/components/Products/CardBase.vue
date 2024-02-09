@@ -23,7 +23,11 @@ const props = defineProps({
     <section class="product_card_base-body">
       <section class="product_card_base-header">
         <section class="product_card_base-heading">
-          <h4 class="product_card_base-title">ست لوازم کار</h4>
+          <router-link
+            :to="{ name: 'Home' }"
+            class="product_card_base-title"
+            >ست لوازم کار</router-link
+          >
           <span class="product_card_base-seller text-muted">دیجی کالا</span>
         </section>
         <ul class="product_card_base-rating">
@@ -32,6 +36,14 @@ const props = defineProps({
           </li>
         </ul>
       </section>
+      <p
+        class="product_card_base-overview_description"
+        v-if="props.gridOrList === 'list'"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium,
+        maiores perferendis, modi culpa reprehenderit placeat ex commodi quam
+        tenetur fugit tempora quibusdam asperiores molestias doloribus.
+      </p>
       <section class="product_card_base-footer">
         <section class="product_card_base-price">
           <p class="product_card_base-new_price">3,650,000 تومان</p>
