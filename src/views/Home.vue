@@ -7,7 +7,7 @@
         :class="`showcase${index}`"
       >
         <section class="showcase-overlay">
-          <router-link :to="{ name: showcase.link.name }">
+          <router-link :to="showcase.link">
             {{ showcase.title }}
           </router-link>
         </section>
@@ -248,25 +248,29 @@ import CardBase from "../components/Products/CardBase.vue";
 const showcaseItems = ref([
   {
     link: {
-      name: "Home",
+      name: "ProductsList",
+      params: { category: "دستگاه جوش" },
     },
     title: "دستگاه جوش",
   },
   {
     link: {
-      name: "Home",
+      name: "ProductsList",
+      params: { category: "جعبه ابزار" },
     },
     title: "جعبه های ابزار آماده کارن",
   },
   {
     link: {
-      name: "Home",
+      name: "ProductsList",
+      params: { category: "دمنده" },
     },
     title: "دمنده",
   },
   {
     link: {
-      name: "Home",
+      name: "ProductsList",
+      params: { category: "موتور برق" },
     },
     title: "موتور های برق",
   },
