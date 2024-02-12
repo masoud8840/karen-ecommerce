@@ -2,8 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 // Components
 import Home from "../views/Home.vue";
 import ProductList from "../views/ProductList.vue";
-import Dashboard from "../views/Dashboard.vue";
-import UserAccount from "../views/UserAccount.vue";
+import Dashboard_index from "../views/Dashboard/index.vue";
 
 const routes = [
   {
@@ -18,16 +17,10 @@ const routes = [
     props: true,
   },
   {
-    path: "/dashboard",
+    path: "/dashboard/:subpage",
     name: "Dashboard",
-    component: Dashboard,
-    children: [
-      {
-        path: "/user-account",
-        name: "UserAccount",
-        component: UserAccount,
-      },
-    ],
+    component: Dashboard_index,
+    props: true,
   },
 ];
 
