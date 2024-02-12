@@ -40,7 +40,7 @@
           <Bag :width="32" />
         </router-link>
         <hr class="horizontal-line" />
-        <router-link :to="{ name: 'Home' }">
+        <router-link :to="{ name: 'UserAccount' }">
           <User :width="32" />
         </router-link>
       </section>
