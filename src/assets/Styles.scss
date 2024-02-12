@@ -562,6 +562,10 @@ header {
     gap: 15px;
     width: 100%;
 
+    &.col {
+      flex-direction: column;
+    }
+
     button {
       background-color: $orange;
       padding: 10px 25px;
@@ -1455,3 +1459,8 @@ hr.line-orange {
     }
   }
 }
+// Dashboard.vue
+.dashboard-view {
+  padding-top: 100px;
+}
+// UserAccount.vue
