@@ -104,7 +104,7 @@
             <section class="product_details_user_options_group-body">
               <section class="qty_input">
                 <button @click="incrementQty">
-                  awd<Plus :width="32" color="#fdac16" />
+                  <Plus :width="32" color="#fff" hover-color="#fff" />
                 </button>
                 <input
                   type="number"
@@ -245,6 +245,7 @@ import { ref } from "vue";
 import Star from "../components/icons/Star.vue";
 import StarOutline from "../components/icons/StarOutline.vue";
 import Minus from "../components/icons/Minus.vue";
+import Plus from "../components/icons/Plus.vue";
 import CartPlus from "../components/icons/CartPlus.vue";
 
 const props = defineProps(["productId"]);
