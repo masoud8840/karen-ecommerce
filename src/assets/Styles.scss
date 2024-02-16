@@ -556,39 +556,6 @@ header {
       }
     }
   }
-
-  .input_group {
-    display: flex;
-    gap: 15px;
-    width: 100%;
-
-    button {
-      background-color: $orange;
-      padding: 10px 25px;
-      border-radius: 4px;
-      color: #fff;
-    }
-
-    input {
-      width: 100%;
-      max-width: 270px;
-      border: 0;
-      border-radius: 4px;
-      padding-inline: 10px;
-      outline: 0;
-
-      &::placeholder {
-        color: rgba($color: $text, $alpha: 0.5);
-        transition: padding 0.15s;
-      }
-
-      &:focus {
-        &::placeholder {
-          padding-right: 7px;
-        }
-      }
-    }
-  }
 }
 
 // HorizontalCard.vue
@@ -681,6 +648,43 @@ footer {
 }
 
 // Global Styles
+.input_group {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+
+  &.col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    background-color: $orange;
+    padding: 10px 25px;
+    border-radius: 4px;
+    color: #fff;
+  }
+
+  input {
+    width: 100%;
+    border: 0;
+    border-radius: 4px;
+    padding-inline: 10px;
+    outline: 0;
+    min-height: 45px;
+
+    &::placeholder {
+      color: rgba($color: $text, $alpha: 0.5);
+      transition: padding 0.15s;
+    }
+
+    &:focus {
+      &::placeholder {
+        padding-right: 7px;
+      }
+    }
+  }
+}
 .text-orange {
   color: $orange;
 }
@@ -1173,6 +1177,10 @@ hr.line-orange {
     .newsletter-container {
       .newsletter-inner {
         padding-inline: 0;
+      }
+
+      input {
+        max-width: 270px;
       }
     }
   }
@@ -1703,3 +1711,59 @@ hr.line-orange {
     }
   }
 }
+// Dashboard.vue
+.dashboard-view {
+  padding-top: 100px;
+  .user_account-view {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    .input_group {
+      align-items: start;
+      input {
+        background-color: $lightWhite;
+      }
+    }
+    .addresses-container {
+      grid-column: 1/3;
+      .addresses-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        svg {
+          background-color: $lightWhite;
+          border-radius: 4px;
+        }
+      }
+      .addresses-body {
+        margin-bottom: 100px;
+        .addresses_item-container {
+          background-color: $lightWhite;
+          padding: 15px;
+          border-radius: 16px;
+
+          .addresses_item-header {
+            display: flex;
+            justify-content: space-between;
+            h5 {
+              @include Text(500, 16px, 24px);
+              margin-bottom: 15px;
+            }
+            .addresses_item-actions {
+              gap: 15px;
+              display: none;
+              align-items: center;
+            }
+          }
+
+          &:hover {
+            section.addresses_item-actions {
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// UserAccount.vue

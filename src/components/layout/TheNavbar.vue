@@ -37,11 +37,18 @@
       </section>
       <section class="navbar-inner">
         <router-link :to="{ name: 'Home' }">
-          <Bag :width="32" />
+          <Bag :width="32" hover-color="#fdac16" />
         </router-link>
         <hr class="horizontal-line" />
-        <router-link :to="{ name: 'Home' }">
-          <User :width="32" />
+        <router-link
+          :to="{
+            name: 'Dashboard',
+            params: {
+              subpage: 'user-account',
+            },
+          }"
+        >
+          <User :width="32" hover-color="#fdac16" />
         </router-link>
       </section>
     </nav>

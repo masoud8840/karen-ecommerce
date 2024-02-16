@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import ProductList from "../views/ProductList.vue";
 import ProductDetails from "../views/ProductDetails.vue";
+import Dashboard_index from "../views/Dashboard/index.vue";
 
 const routes = [
   {
@@ -20,6 +21,12 @@ const routes = [
     path: "/products/details/:productId",
     name: "ProductDetails",
     component: ProductDetails,
+    props: true,
+  },
+  {
+    path: "/dashboard/:subpage",
+    name: "Dashboard",
+    component: Dashboard_index,
     props: true,
   },
 ];
