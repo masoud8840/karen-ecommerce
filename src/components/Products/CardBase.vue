@@ -24,7 +24,7 @@ const props = defineProps({
       <section class="product_card_base-header">
         <section class="product_card_base-heading">
           <router-link
-            :to="{ name: 'Home' }"
+            :to="{ name: 'ProductDetails', params: { productId: '123' } }"
             class="product_card_base-title"
             >ست لوازم کار</router-link
           >
