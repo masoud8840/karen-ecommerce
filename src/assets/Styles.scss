@@ -20,7 +20,7 @@ $orange: #fdac16;
   margin: 0 auto;
 }
 
-header {
+.main-header {
   position: fixed;
   width: 100%;
   backdrop-filter: blur(5px);
@@ -861,7 +861,7 @@ hr.line-orange {
 
 // Media Queries
 @media (width > 430px) {
-  header {
+  .main-header {
     .navbar_logo_link {
       display: flex;
 
@@ -1714,6 +1714,28 @@ hr.line-orange {
 // Dashboard.vue
 .dashboard-view {
   padding-top: 100px;
+  header {
+    margin-bottom: 30px;
+    ul {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      li {
+        a {
+          background-color: $lightWhite;
+          border-radius: 16px;
+          display: block;
+          padding-block: 15px;
+          text-align: center;
+          font-weight: 600;
+          &.active {
+            background-color: $orange;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
   .user_account-view {
     display: grid;
     gap: 30px;

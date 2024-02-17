@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="main-header">
     <nav :class="{ extended: isExtended, navbar: true, container: true }">
       <section class="navbar-inner">
         <router-link :to="{ name: 'Home' }" class="navbar_logo_link">

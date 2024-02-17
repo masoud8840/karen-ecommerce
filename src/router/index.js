@@ -31,7 +31,7 @@ const routes = [
     children: [
       {
         path: "user-account",
-        name: "Dashboard_UserAccount",
+        name: "UserAccount",
         component: UserAccount,
       },
     ],
