@@ -41,12 +41,7 @@
         </router-link>
         <hr class="horizontal-line" />
         <router-link
-          :to="{
-            name: 'Dashboard',
-            params: {
-              subpage: 'user-account',
-            },
-          }"
+          to="/dashboard/user-account"
         >
           <User :width="32" hover-color="#fdac16" />
         </router-link>

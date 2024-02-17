@@ -1,5 +1,4 @@
 <template>
-  <h1>this is useraccount.vue</h1>
   <form class="user_account-view container">
     <section class="input_group col full_name-input_group">
       <label for="fullname" class="section-title orange"
@@ -26,7 +25,7 @@
             <h5 class="addresses_item-title">محل کار</h5>
             <section class="addresses_item-actions">
               <button type="button">تصحیح</button>
-              <button type="submit" class="btn-primary">حذف</button>
+              <button type="button" class="btn-primary">حذف</button>
             </section>
           </section>
           <section class="address_item-body">

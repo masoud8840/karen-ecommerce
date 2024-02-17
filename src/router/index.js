@@ -3,7 +3,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import ProductList from "../views/ProductList.vue";
 import ProductDetails from "../views/ProductDetails.vue";
-import Dashboard_index from "../views/Dashboard/index.vue";
+import Dashboard from "../views/Dashboard/index.vue";
+import UserAccount from "../views/Dashboard/UserAccount.vue";
 
 const routes = [
   {
@@ -24,10 +25,16 @@ const routes = [
     props: true,
   },
   {
-    path: "/dashboard/:subpage",
+    path: "/dashboard",
     name: "Dashboard",
-    component: Dashboard_index,
-    props: true,
+    component: Dashboard,
+    children: [
+      {
+        path: "user-account",
+        name: "Dashboard_UserAccount",
+        component: UserAccount,
+      },
+    ],
   },
 ];
 
