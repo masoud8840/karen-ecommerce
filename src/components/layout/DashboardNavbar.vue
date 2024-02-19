@@ -23,7 +23,7 @@ const menuItems = ref([
   },
   {
     title: "سبد خرید",
-    link: { name: "UserAccount" },
+    link: { name: "ShoppingCart" },
   },
   {
     title: "لیست مورد علاقه ها",

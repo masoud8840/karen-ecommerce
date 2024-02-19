@@ -1787,5 +1787,121 @@ hr.line-orange {
       }
     }
   }
+
+  // ShoppingCart.vue
+  .shopping_cart-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    gap: 30px;
+    align-items: start;
+    .shopping_cart-receipt {
+      background-color: $lightWhite;
+      padding: 25px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      .shopping_cart-coupan {
+        display: flex;
+        gap: 15px;
+        button {
+          min-width: fit-content;
+        }
+        input {
+          width: 100%;
+          border: 0;
+          padding: 0 5px;
+          outline: 0;
+          border-radius: 8px;
+        }
+      }
+
+      hr {
+        background-image: linear-gradient(
+          to right,
+          rgba($color: $text, $alpha: 0.25) 60%,
+          rgba(255, 255, 255, 0) 0%
+        );
+        background-position: bottom;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+        height: 1px;
+        border: none;
+      }
+      .shopping_cart_receipt-products {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        li {
+          display: flex;
+          justify-content: space-between;
+          gap: 30px;
+          span {
+            min-width: fit-content;
+          }
+          h4 {
+            @include Text(500, 16px, 24px);
+          }
+        }
+      }
+      .btn-checkout {
+        text-align: center;
+        padding-block: 12px;
+        justify-content: center;
+      }
+    }
+    .shopping_cart-products {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      li {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        position: relative;
+        background-color: $lightWhite;
+        border-radius: 16px;
+        padding: 25px;
+        .qty_input {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          button {
+            width: 32px;
+            aspect-ratio: 1/1;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0;
+            &:first-child {
+              border-radius: 4px 4px 0 0;
+            }
+            &:last-child {
+              border-radius: 0 0 4px 4px;
+            }
+          }
+          input {
+            max-width: 32px;
+            aspect-ratio: 1/1.5;
+            text-align: center;
+            outline: 0;
+            border: 0;
+          }
+        }
+        img {
+          max-width: 200px;
+          aspect-ratio: 1/1;
+        }
+        h4 {
+          @include Text(600, 16px, 24px);
+          margin-bottom: 15px;
+        }
+        .btn-close {
+          position: absolute;
+          top: 25px;
+          left: 25px;
+        }
+      }
+    }
+  }
 }
-// UserAccount.vue
