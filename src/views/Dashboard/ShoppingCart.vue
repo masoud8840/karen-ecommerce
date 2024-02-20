@@ -38,7 +38,7 @@
           <span class="text-orange">3,480,000 تومان</span>
         </section>
 
-        <button type="button" class="btn-close"><Close :width="32" /></button>
+        <button type="button" class="btn-close"><Close :width="22" color="#fdac16" hover-color="#fdac16" /></button>
       </li>
     </ul>
   </section>
