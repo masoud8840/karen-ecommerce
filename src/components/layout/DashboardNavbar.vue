@@ -27,7 +27,7 @@ const menuItems = ref([
   },
   {
     title: "لیست مورد علاقه ها",
-    link: { name: "UserAccount" },
+    link: { name: "FavoriteList" },
   },
   {
     title: "تاریخچه",

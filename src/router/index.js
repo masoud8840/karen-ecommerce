@@ -6,6 +6,7 @@ import ProductDetails from "../views/ProductDetails.vue";
 import Dashboard from "../views/Dashboard/index.vue";
 import UserAccount from "../views/Dashboard/UserAccount.vue";
 import ShoppingCart from "../views/Dashboard/ShoppingCart.vue";
+import FavoriteList from "../views/Dashboard/FavoriteList.vue";
 
 const routes = [
   {
@@ -39,6 +40,11 @@ const routes = [
         path: "shopping-cart",
         name: "ShoppingCart",
         component: ShoppingCart,
+      },
+      {
+        path: "favorite-list",
+        name: "FavoriteList",
+        component: FavoriteList,
       },
     ],
   },
