@@ -713,6 +713,9 @@ button {
     padding: 7px 15px;
     border-radius: 8px;
   }
+  &[disabled] {
+    cursor: default;
+  }
 }
 
 .section-title {
@@ -1788,7 +1791,6 @@ hr.line-orange {
     }
   }
 
-
   // ShoppingCart.vue
   .shopping_cart-container {
     display: grid;
@@ -1910,5 +1912,60 @@ hr.line-orange {
     }
   }
   // FavoriteList.vue
-  
+  .favorite_list-container {
+    background: $lightWhite;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 100px;
+    .favorite_list-header {
+      display: grid;
+      grid-template-columns: 0.8fr 1fr 0.6fr 0.5fr 0.6fr 0.4fr;
+      gap: 15px;
+      border-bottom: 1px solid rgba($color: $text, $alpha: 0.1);
+      padding-bottom: 15px;
+      h3 {
+        @include Text(500, 16px, 24px);
+      }
+    }
+
+    .favorite_list-list {
+      padding-top: 15px;
+      display: grid;
+      gap: 15px;
+      .favorite_list-item {
+        display: grid;
+        grid-template-columns: 0.8fr 1fr 0.6fr 0.5fr 0.6fr 0.4fr;
+        gap: 15px;
+        align-items: center;
+
+        h4 {
+          @include Text(600, 16px, 24px);
+        }
+        img {
+          width: 100%;
+          max-height: 100px;
+          aspect-ratio: 16/9;
+        }
+        ul,
+        .add_delete {
+          display: flex;
+        }
+        .add_delete {
+          gap: 15px;
+          button[disabled] {
+            svg path {
+              fill: red;
+              fill: rgba($color: $text, $alpha: 0.25);
+            }
+          }
+        }
+        .in-stock {
+          color: $orange;
+        }
+        .out-of-stock {
+          color: rgba($color: $text, $alpha: 0.25);
+        }
+      }
+    }
+  }
 }
