@@ -21,9 +21,11 @@
           <li v-for="i in 5"><Star :width="22" /></li>
         </ul>
         <section class="add_delete">
-          <button><Heart :width="28" hover-color="#fdac16" /></button>
           <button>
-            <CartPlus :width="28" hover-color="#fdac16" />
+            <Heart :width="28" hover-color="#fff" color="#fdac16" />
+          </button>
+          <button>
+            <CartPlus :width="28" hover-color="#fff" color="#fdac16" />
           </button>
         </section>
       </li>
@@ -39,9 +41,11 @@
           <li v-for="i in 5"><Star :width="22" /></li>
         </ul>
         <section class="add_delete">
-          <button><Heart :width="28" hover-color="#39354c40" color="#fdac16" /></button>
+          <button>
+            <Heart :width="28" hover-color="#fff" color="#fdac16" />
+          </button>
           <button disabled>
-            <CartPlus :width="28" hover-color="#fdac16" />
+            <CartPlus :width="28" hover-color="#fff" color="#fdac16" />
           </button>
         </section>
       </li>

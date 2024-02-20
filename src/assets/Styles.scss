@@ -1952,10 +1952,17 @@ hr.line-orange {
         }
         .add_delete {
           gap: 15px;
-          button[disabled] {
-            svg path {
-              fill: red;
-              fill: rgba($color: $text, $alpha: 0.25);
+          button {
+            border-radius: 100px;
+            padding: 4px;
+            &:hover {
+              background-color: $orange;
+            }
+            &[disabled] {
+              svg path {
+                fill: red;
+                fill: rgba($color: $text, $alpha: 0.25);
+              }
             }
           }
         }
