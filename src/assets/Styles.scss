@@ -1911,6 +1911,7 @@ hr.line-orange {
       }
     }
   }
+
   // FavoriteList.vue
   .favorite_list-container {
     background: $lightWhite;
@@ -1939,7 +1940,7 @@ hr.line-orange {
         align-items: center;
 
         h4 {
-          @include Text(600, 16px, 24px);
+          @include Text(500, 16px, 24px);
         }
         img {
           width: 100%;
@@ -1971,6 +1972,35 @@ hr.line-orange {
         }
         .out-of-stock {
           color: rgba($color: $text, $alpha: 0.25);
+        }
+      }
+    }
+  }
+
+  // OrdersHistory.vue
+  .orders_history-container {
+    background-color: $lightWhite;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 100px;
+    .orders_history-header {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr 1.2fr 1fr 1fr 0.5fr;
+      gap: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba($color: $text, $alpha: 0.1);
+      h3 {
+        @include Text(500, 16px, 24px);
+      }
+    }
+    .orders_history-body {
+      padding-top: 15px;
+      li {
+        display: grid;
+        grid-template-columns: 0.5fr 1fr 1.2fr 1fr 1fr 0.5fr;
+        gap: 15px;
+        h4 {
+          color: rgba($color: $text, $alpha: 0.5);
         }
       }
     }

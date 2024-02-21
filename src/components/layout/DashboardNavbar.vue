@@ -31,7 +31,7 @@ const menuItems = ref([
   },
   {
     title: "تاریخچه",
-    link: { name: "UserAccount" },
+    link: { name: "OrdersHistory" },
   },
 ]);
 </script>
