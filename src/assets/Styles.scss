@@ -550,6 +550,11 @@ $orange: #fdac16;
         @include Text(600, 22px, 33px);
       }
 
+      .input_group {
+        button {
+          white-space: nowrap;
+        }
+      }
       p {
         color: #fff;
         @include Text(400, 14px, 21px);
