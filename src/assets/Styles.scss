@@ -1490,10 +1490,13 @@ hr.line-orange {
 
   // ShoppingCart.vue
   .shopping_cart-container {
-    display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+    // display: grid;
+    // grid-template-columns: 0.5fr 1fr;
+    // align-items: start;
+
     gap: 30px;
-    align-items: start;
     margin-bottom: 100px;
     .shopping_cart-receipt {
       background-color: $lightWhite;
@@ -1539,9 +1542,6 @@ hr.line-orange {
           gap: 30px;
           span {
             min-width: fit-content;
-          }
-          h4 {
-            @include Text(500, 16px, 24px);
           }
         }
       }
@@ -1592,6 +1592,7 @@ hr.line-orange {
         img {
           max-width: 200px;
           aspect-ratio: 1/1;
+          display: none;
         }
         h4 {
           @include Text(600, 16px, 24px);
@@ -1599,8 +1600,8 @@ hr.line-orange {
         }
         .btn-close {
           position: absolute;
-          top: 25px;
-          left: 25px;
+          top: 15px;
+          left: 15px;
           border: 1px solid $orange;
           padding: 2px;
           border-radius: 100px;
@@ -1808,6 +1809,18 @@ hr.line-orange {
       }
     }
   }
+
+  .dashboard-view {
+    .shopping_cart-container {
+      .shopping_cart-receipt {
+        .shopping_cart_receipt-products {
+          h4 {
+            @include Text(500, 16px, 24px);
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (width > 620px) {
@@ -1922,6 +1935,19 @@ hr.line-orange {
       .products_list-list {
         &[data-view="grid"] {
           grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
+  }
+  .dashboard-view {
+    .shopping_cart-container {
+      display: grid;
+      grid-template-columns: 0.7fr 1fr;
+      .shopping_cart-receipt {
+        .shopping_cart_receipt-products {
+          h4 {
+            @include Text(500, 16px, 24px);
+          }
         }
       }
     }
@@ -2064,5 +2090,21 @@ hr.line-orange {
 
   .dashboard-view {
     padding-inline: 0;
+  }
+
+  .dashboard-view {
+    .shopping_cart-container {
+      grid-template-columns: 0.5fr 1fr;
+    }
+
+    .shopping_cart-container {
+      .shopping_cart-products {
+        li {
+          img {
+            display: block;
+          }
+        }
+      }
+    }
   }
 }
