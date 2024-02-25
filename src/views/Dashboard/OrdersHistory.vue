@@ -1,35 +1,39 @@
 <template>
   <section class="orders_history-container container">
-    <section class="orders_history-header">
-      <h3>ردیف</h3>
-      <h3>شماره سفارش</h3>
-      <h3>تاریخ</h3>
-      <h3>وضعیت</h3>
-      <h3>مجموع</h3>
-      <h3>جزئیات</h3>
-    </section>
+    <section class="orders_history-inner">
+      <section class="orders_history-header">
+        <h3>ردیف</h3>
+        <h3>شماره سفارش</h3>
+        <h3>تاریخ</h3>
+        <h3>وضعیت</h3>
+        <h3>مجموع</h3>
+        <h3>جزئیات</h3>
+      </section>
 
-    <ul class="orders_history-body">
-      <li
-        class="orders_history-item"
-        v-for="(order, index) in ordersHistory"
-        :key="index"
-      >
-        <h4>#{{ formatNumbers(index + 1) }}</h4>
-        <h4>#{{ formatNumbers(order.orderId) }}</h4>
-        <h4>{{ Formattime(order.orderDate) }}</h4>
-        <h4>
-          {{ statusToText(order.status) }} ({{
-            formatNumbers(order.items.length)
-          }}
-          محصول)
-        </h4>
-        <h4>{{ order.totalCart.toLocaleString("fa-IR") }}</h4>
-        <router-link class="text-orange" to="/dashboard/shopping-cart/1223"
-          >مشاهده</router-link
+      <ul class="orders_history-body">
+        <li
+          class="orders_history-item"
+          v-for="(order, index) in ordersHistory"
+          :key="index"
         >
-      </li>
-    </ul>
+          <h4>#{{ formatNumbers(index + 1) }}</h4>
+          <h4>#{{ formatNumbers(order.orderId) }}</h4>
+          <h4>{{ Formattime(order.orderDate) }}</h4>
+          <h4>
+            {{ statusToText(order.status) }} ({{
+              formatNumbers(order.items.length)
+            }}
+            محصول)
+          </h4>
+          <h4>{{ order.totalCart.toLocaleString("fa-IR") }}</h4>
+          <router-link
+            class="text-orange"
+            to="/dashboard/shopping-cart/1233"
+            >مشاهده</router-link
+          >
+        </li>
+      </ul>
+    </section>
   </section>
 </template>
 

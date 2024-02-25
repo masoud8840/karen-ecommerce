@@ -1683,27 +1683,33 @@ hr.line-orange {
   // OrdersHistory.vue
   .orders_history-container {
     background-color: $lightWhite;
-    padding: 25px;
     border-radius: 16px;
     margin-bottom: 100px;
-    .orders_history-header {
-      display: grid;
-      grid-template-columns: 0.5fr 1fr 1.2fr 1fr 1fr 0.5fr;
-      gap: 15px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid rgba($color: $text, $alpha: 0.1);
-      h3 {
-        @include Text(500, 16px, 24px);
-      }
-    }
-    .orders_history-body {
-      padding-top: 15px;
-      li {
+    .orders_history-inner {
+      padding: 25px;
+      overflow: auto;
+      .orders_history-header {
+        min-width: 768px;
         display: grid;
-        grid-template-columns: 0.5fr 1fr 1.2fr 1fr 1fr 0.5fr;
+        grid-template-columns: 0.5fr 0.8fr 1fr 1.5fr 1fr 0.7fr;
         gap: 15px;
-        h4 {
-          color: rgba($color: $text, $alpha: 0.5);
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba($color: $text, $alpha: 0.1);
+        h3 {
+          @include Text(500, 16px, 24px);
+        }
+      }
+      .orders_history-body {
+        min-width: 768px;
+        padding-top: 15px;
+        li {
+          display: grid;
+          grid-template-columns: 0.5fr 0.8fr 1fr 1.5fr 1fr 0.7fr;
+
+          gap: 15px;
+          h4 {
+            color: rgba($color: $text, $alpha: 0.5);
+          }
         }
       }
     }
