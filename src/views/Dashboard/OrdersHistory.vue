@@ -28,7 +28,7 @@
           <h4>{{ order.totalCart.toLocaleString("fa-IR") }}</h4>
           <router-link
             class="text-orange"
-            to="/dashboard/shopping-cart/1233"
+            :to="{ name: 'ShoppingCart', query: { orderId: 1233 } }"
             >مشاهده</router-link
           >
         </li>

@@ -43,17 +43,12 @@ const routes = [
         component: ShoppingCart,
       },
       {
-        path: "shopping-cart/:orderId",
-        name: "ShoppingCartHistory",
-        component: ShoppingCart,
-      },
-      {
         path: "favorite-list",
         name: "FavoriteList",
         component: FavoriteList,
       },
       {
-        path: "/orders-history",
+        path: "orders-history",
         name: "OrdersHistory",
         component: OrdersHistory,
       },
