@@ -1,6 +1,6 @@
 <template>
   <header class="main-header">
-    <nav :class="{ extended: isExtended, navbar: true, container: true }">
+    <nav :class="`${isExtended ? 'extended' : ''} container navbar`">
       <section class="navbar-inner">
         <router-link :to="{ name: 'Home' }" class="navbar_logo_link">
           <Logo class="navbar_logo" />
@@ -40,9 +40,7 @@
           <Bag :width="32" hover-color="#fdac16" />
         </router-link>
         <hr class="horizontal-line" />
-        <router-link
-          to="/dashboard/user-account"
-        >
+        <router-link to="/dashboard/user-account">
           <User :width="32" hover-color="#fdac16" />
         </router-link>
       </section>

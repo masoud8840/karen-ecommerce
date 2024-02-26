@@ -1730,9 +1730,11 @@ hr.line-orange {
 }
 
 @media (width > 576px) {
-  ul.dropdown {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  .navbar {
+    ul.dropdown {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   main.home-view {
     .categories-showcase {
@@ -1851,9 +1853,11 @@ hr.line-orange {
 }
 
 @media (width > 768px) {
-  ul.dropdown {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .navbar {
+    ul.dropdown {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
   main.home-view {
     .monthly_off-container {
@@ -1911,9 +1915,11 @@ hr.line-orange {
 }
 
 @media (width > 968px) {
-  ul.dropdown {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+  .navbar {
+    ul.dropdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
   main.home-view {
     .banner_1x2.container {
@@ -1973,38 +1979,35 @@ hr.line-orange {
 
     .navbar {
       padding-inline: 0;
-    }
 
-    ul.dropdown {
-      height: initial;
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 30px;
-      background-color: $lightWhite;
-      padding: 25px;
-      position: absolute;
-      bottom: -543px;
-      top: initial;
-      border-radius: 16px;
-      box-shadow: 0 10px 20px rgba($color: $text, $alpha: 0.1);
+      ul.dropdown {
+        height: initial;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        padding: 25px;
+        position: absolute;
+        bottom: -543px;
+        top: initial;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 10px 20px rgba($color: $text, $alpha: 0.1);
+        &.dropdown-enter-from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
 
-      &.dropdown-enter-from {
-        transform: translateY(30px);
-        opacity: 0;
-      }
+        &.dropdown-enter-active,
+        &.dropdown-leave-active {
+          transition: all 0.35s ease-out;
+        }
 
-      &.dropdown-enter-active,
-      &.dropdown-leave-active {
-        transition: all 0.35s ease-out;
-      }
+        &.dropdown-leave-to {
+          transform: translateY(30px);
+          opacity: 0;
+        }
 
-      &.dropdown-leave-to {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-
-      .dropdown-close_btn {
-        display: none;
+        .dropdown-close_btn {
+          display: none;
+        }
       }
     }
   }
