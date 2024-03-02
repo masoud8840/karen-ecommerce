@@ -15,30 +15,59 @@
     <section class="addresses-container">
       <section class="addresses-header">
         <h4 class="section-title orange">آدرس ها</h4>
-        <button type="button">
+        <button type="button" @click="onAddAddress">
           <Plus :width="24" hover-color="#fdac16" />
         </button>
       </section>
-      <section class="addresses-body">
-        <section class="addresses_item-container">
-          <section class="addresses_item-header">
-            <h5 class="addresses_item-title">محل کار</h5>
-            <section class="addresses_item-actions">
-              <button type="button">تصحیح</button>
-              <button type="button" class="btn-primary">حذف</button>
-            </section>
-          </section>
-          <section class="address_item-body">
-            <p class="addresses_item-subtitle text-muted">
-              شهریار - فاز دو مخابرات - کوچه کوشش - کوچه کارا - پلاک 21
-            </p>
-          </section>
-        </section>
-      </section>
+      <h3 class="text-center" v-if="!addresses.length">
+        هیچ آدرسی برای کاربر ثبت نشده است
+      </h3>
+      <ul class="addresses-body" v-else>
+        <li v-for="(address, index) in addresses" :key="index">
+          <AddressPlaceholder
+            v-bind="address"
+            @on-submit="handleSubmitAddress"
+            @on-delete="handleDeleteAddress"
+          />
+        </li>
+      </ul>
     </section>
   </form>
 </template>
 
 <script setup>
 import Plus from "../../components/icons/Plus.vue";
+import AddressPlaceholder from "../../components/UI/AddressPlaceholder.vue";
+import { ref } from "vue";
+const addresses = ref([
+  {
+    id: 1,
+    addressTitle: "محل کارم",
+    exactAddress: "شهریار - فاز دو مخابرات - کوچه کوشش - کوچه کارا - پلاک 21",
+  },
+]);
+
+function onAddAddress() {
+  addresses.value.push({
+    id: addresses.value.length + 1,
+    addressTitle: "",
+    exactAddress: "",
+    extraOptions: { isEditing: true },
+  });
+}
+
+function handleSubmitAddress(newAddressObj) {
+  const modifiedAddress = addresses.value.findIndex(
+    (address) => address.id === newAddressObj.id
+  );
+  addresses.value[modifiedAddress] = { ...newAddressObj };
+}
+
+function handleDeleteAddress(id) {
+  const deletedAddressIndex = addresses.value.findIndex(
+    (address) => address.id === id
+  );
+  
+  addresses.value.splice(deletedAddressIndex, 1);
+}
 </script>
