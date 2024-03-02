@@ -1972,7 +1972,7 @@ hr.line-orange {
 }
 
 @media (width > 1200px) {
-  header {
+  .main-header {
     svg {
       max-width: none !important;
     }
@@ -2050,12 +2050,16 @@ hr.line-orange {
       padding-inline: 0;
     }
 
+    .featured_products-container {
+      padding-inline: 0;
+    }
     .fluid_banner {
       padding-inline: 0;
     }
 
     .three_columned_list-container {
       grid-template-columns: repeat(3, 1fr);
+      padding-inline: 0;
     }
 
     .monthly_off-container {
@@ -2093,8 +2097,10 @@ hr.line-orange {
   }
 
   main.products_list-view {
-    .products_list_header-inner {
-      padding-inline: 0;
+    .products_list-header {
+      .products_list_header-inner {
+        padding-inline: 0;
+      }
     }
 
     .products_list-body {
@@ -2119,6 +2125,12 @@ hr.line-orange {
           }
         }
       }
+    }
+  }
+
+  footer {
+    .footer-inner {
+      padding-inline: 0;
     }
   }
 }
